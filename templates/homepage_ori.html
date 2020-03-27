@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>INS<b>OCR</b>ANCE</h1>
+    <p>Get your daily check up reports digitalized.</p>
+  </div>
+</div>
+
+<div class="container">
+  <label for="upload">Upload the lab report:</label>
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="image">
+        {% if err_msg == -1 %}
+          <input type="file" class="custom-file-input form-control is-invalid" name="image">
+          <div class="invalid-feedback">
+            Invalid Extension! (upload .jpg / .jpeg / .png / .pdf)
+          </div>
+        {% elif err_msg == 1 %}
+          <input type="file" class="custom-file-input form-control is-valid" name="image">
+          <div class="valid-feedback">
+            {{ filename }} Successfully uploaded!
+          </div>
+
+        {% endif %}
+        <label class="custom-file-label" for="image"></label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+    {% if err_msg == 1 %}
+      <script type="text/javascript">
+          function picture(){
+          var pic = "static/user_uploads/{{ filename }}"
+          document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+          document.getElementById('bigpic').style.display='block';
+
+          }
+      </script>
+      <input type="button" class="btn btn-success" value="View Uploaded Document" onclick="picture()">
+      <br>
+      <br>
+      <img id="bigpic" src="bigpic" style="display:none; max-height: 600px;" />
+    {% endif %}
+  </form>
+</div>
+<script type="application/javascript">
+    $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+</script>
+
+<hr class="my-4">
+<div class="container" align="center">
+  <p class="lead">Choose the number of equispaced columns in your report:</p>
+  <form action="/table" method="POST">
+    <input type="image" name="column_model" value="2" src="static/images/two.jpg" alt="TWO COLUMNS" width="200" height="120" role="button" class="btn btn-secondary">
+    <input type="image" name="column_model" value="3" src="static/images/three.jpg" alt="THREE COLUMNS" width="200" height="120" role="button" class="btn btn-secondary">
+    <input type="image" name="column_model" value="4" src="static/images/four.jpg" alt="FOUR COLUMNS"  width="200" height="120" role="button" class="btn btn-secondary">
+  </form>
+</div>
+<hr class="my-4">
+
+
+
+{% endblock %}
+

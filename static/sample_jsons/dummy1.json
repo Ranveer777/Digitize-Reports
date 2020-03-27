@@ -1,0 +1,74 @@
+{
+  "Hemoglobin, EDTA whole blood": [
+    "30.5",
+    "14.0 - 17.50 g/dL"
+  ],
+  "Total Leucocytes (WBC) count": [
+    "10.0",
+    "4"
+  ],
+  "Platelet count": [
+    "19.0",
+    "8"
+  ],
+  "MPV (Mean Platelet Volume)": [
+    "22.5",
+    "6to9StL"
+  ],
+  "Red biood cell count": [
+    "492.0",
+    "4.50 - 5.90 x 10%6 /uL"
+  ],
+  "PCv (Packed Cell Volume)": [
+    "52.9",
+    "41.5 - 50.4%"
+  ],
+  "MCV (Mean Corpuscular Volume)": [
+    "107.2",
+    "80.0 - 96.0 fL"
+  ],
+  "MCH (Mean Corpuscular Haemoglobin)": [
+    "36.8",
+    "27.5 - 33.2 pgms"
+  ],
+  "MCHC (Mean Corpuscular Haemoglobin Concentration)": [
+    "52.1",
+    "33.4 - 35.5 gid"
+  ],
+  "RDW (Red blood cell distribution width)": [
+    "10.0",
+    "4"
+  ],
+  "Differential Count": [
+    "51.0",
+    "40 - 80 %"
+  ],
+  "Neutrophils.": [
+    "7.0",
+    "2"
+  ],
+  "Absolute Neutrophils": [
+    "21.0",
+    "1-6%"
+  ],
+  "Eosinophils": [
+    "115.0",
+    "20 - 500 /uL"
+  ],
+  "Absolute Eosinophils": [
+    "17.0",
+    "0-2%"
+  ],
+  "Basophils": [
+    "22.0",
+    "5"
+  ],
+  "Absolute Basophils": [
+    "20.0",
+    "20-40%"
+  ],
+  "Lymphocytes": [
+    "438.0",
+    "1000 - 3000 /jiL"
+  ]
+}

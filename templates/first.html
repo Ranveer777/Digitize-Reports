@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<title>
+HOME
+</title>
+</head>
+
+<body>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>INSURANCE</h1>      
+    <p>Get your daily check up reports digitalized.</p>
+  </div>
+</div>
+
+<div class="container">
+  <label for="upload">Upload the test results:</label>
+  <form action="/" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" name="image">
+        {% if err_msg == -1 %}
+          <input type="file" class="custom-file-input form-control is-invalid" name="image">
+          <div class="invalid-feedback">
+            Invalid Extension! (jpg, jpeg, gif, pdf - allowed)
+          </div>
+        {% elif err_msg == 1 %}
+          <input type="file" class="custom-file-input form-control is-valid" name="image">
+          <div class="valid-feedback">
+            {{ filename }} Successfully uploaded!
+          </div>
+        {% endif %}
+        <label class="custom-file-label" for="image"></label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+    <a href="user_uploads/" ><button type="button" class="btn btn-success">View Uploaded Document</button>
+  </form>
+</div>
+<script type="application/javascript">
+    $('input[type="file"]').change(function(e){
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+</script>
+
+<hr class="my-4">
+<div class="container" align="center">
+  <p class="lead">Choose OCR model template:</p>
+  <img src="two.jpg" alt="TWO COLUMNS" width="200" height="120" role="button" class="btn btn-secondary">
+  <img src="images/three.jpg" alt="THREE COLUMNS" width="200" height="120" role="button" class="btn btn-secondary">
+  <img src="images/four.jpg" alt="FOUR COLUMNS"  width="200" height="120" role="button" class="btn btn-secondary">
+</div>
+
+<div class="container" align="center">
+  <br>
+  <div class="col-4">
+    <button type="button" class="btn btn-primary btn-block">SCAN REPORT</button>
+  </div>
+</div>
+<hr class="my-4">
+</body>
+</html>

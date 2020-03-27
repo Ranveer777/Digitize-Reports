@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block body %}
+<font face="Avenir">
+{% if err_msg == 1 %}
+  {% if col == 3 %}
+    <div class="container" align="center">
+      <h3><u><font face="Avenir">Digitized Report:</font></u></h3>
+      <br>
+    </div>
+    <div class="table" align="center">
+      <table>
+        <tr>
+          <th align="center"><h5><u>Health Parameter</u></h5></th>
+          <th align="center"><h5><u>Result</u></h5></th>
+          <th align="center"><h5><u>Comment</u></h5></th>
+          <th align="center"><h5><u>Range</u></h5></th>
+        </tr>
+        {% for x, y in report %}
+        <tr>
+            {% if y[1] == ' ' %}
+              <td align="center"><strong><u>{{ x }}</u></strong></td>
+            {% else %}
+              <td align="center">{{ x }}</td>
+            {% endif %}
+            <td align="center">{{ y[0] }}</td>
+            <td align="center"><font color="red">{{ y[2] }}</font></td>
+            <td align="center">{{ y[1] }}</td>
+        {% endfor %}
+        </tr>
+      </table>
+    </div>
+  {% elif col == 4 %}
+    <div class="container" align="center">
+      <h3><u>Digitized Report:</u></h3>
+      <br>
+    </div>
+    <div class="table" align="center">
+      <table align="center">
+        <tr>
+          <th align="center"><h5><u>Health Parameter</u></h5></th>
+          <th align="center"><h5><u>Result</u></h5></th>
+          <th align="center"><h5><u>Comment</u></h5></th>
+          <th align="center"><h5><u>Range</u></h5></th>
+          <th align="center"><h5><u>Method</u></h5></th>
+        </tr>
+        {% for x, y in report %}
+        <tr>
+          {% if y[1] == ' ' %}
+            <td align="center"><strong><u>{{ x }}</u></strong></td>
+          {% else %}
+            <td align="center">{{ x }}</td>
+          {% endif %}
+          <td align="center">{{ y[0] }}</td>
+          <td align="center"><font color="red">{{ y[3] }}</font></td>
+          <td align="center">{{ y[1] }}</td>
+          <td align="center">{{ y[2] }}</td>
+        {% endfor %}
+        </tr>
+      </table>
+    </div>
+  {% endif %}
+{% endif %}
+<div class="container col-6" align="center">
+    <div class="form-group">
+      <form action="/table-uploaded" method="POST">
+        <input type="submit" name="database" class="btn btn-success" value="Re-Upload">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Submit
+        </button>
+      </form>
+    </div>
+</div>
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Verification</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Sending email to '{{ email_id }}' for verification...
+      </div>
+      <form action="/table-uploaded" method="POST">
+        <div class="modal-footer">
+          <input type="submit" name="verify" class="btn btn-secondary" value="Cancel">
+          <input type="submit" name="verify" class="btn btn-primary" value="Continue">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<hr class="my-4">
+</font>
+
+{% endblock %}

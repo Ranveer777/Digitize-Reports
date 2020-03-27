@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block body %}
+<font face="Avenir">
+<div class="container">
+    <p class="lead"><b>Select health parameters to plot trend chart:</b></p>
+        <form action="/trend-chart" method="POST">
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="health" value="Platelet count"> Platelet count</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="health" value="Hemoglobin, EDTA whole blood"> Hemoglobin, EDTA whole blood</label>
+                </div>
+<!--                <div class="checkbox">-->
+<!--                    <label><input type="checkbox" name="health" value="Neutrophils"> Neutrophils.</label>-->
+<!--                </div>-->
+                <div class="checkbox">
+                    <label><input type="checkbox" name="health" value="Absolute Neutrophils"> Absolute Neutrophils</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="health" value="Basophils"> Basophils</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="health" value="Lymphocytes"> Lymphocytes</label>
+                </div>
+<!--                <div class="checkbox">-->
+<!--                    <label><input type="checkbox" name="health" value="Absolute Lymphocytes"> Absolute Lymphocytes</label>-->
+<!--                </div>-->
+<!--                <div class="checkbox">-->
+<!--                    <label><input type="checkbox" name="health" value="Lymphocytes"> Lymphocytes</label>-->
+<!--                </div>-->
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit"/>
+        </form>
+    </font>
+</div>
+<div class="container">
+    <p class="lead">{{ sumz }}</p>
+</div>
+<a href="{{ url_for('trend_chart') }}" ></a>
+{% endblock %}

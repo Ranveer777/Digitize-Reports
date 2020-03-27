@@ -1,0 +1,20 @@
+Health Parameter,Result,Range
+"Hemoglobin, EDTA whole blood",14.50,"14,0 - 17.50 g/dL"
+Total Leucocytes (WBC) count,"5,400",4000-10000/pL
+Platelet count,"187,000",150000 - 450000 ful
+MPV (Mean Platelet Volume),9.50,6to9SfL
+Red biood cell count,487,"4,50 - 5.90 x 10°6 /uL"
+PCv (Packed Cell Volume),43.90,41.5 - 50.4%
+MCV (Mean Corpuscular Volume),90.20,80.0 - 96.0 fL
+MCH (Mean Corpuscular Haemoglobin),29.80,27.5 - 33.2 pgms
+MCHC (Mean Corpuscular Haemoglobin Concentration),33.10,33.4 - 35.5 g/dL
+RDW (Red blood cell distribution width),"14,00",11.6 -14.0%
+Differential Count, , 
+Neutrophils,41,40 - 80 %
+Absolute Neutrophils,"2,214",2000 - 7000 /jiL
+Eosinophils,02,1-6%
+Absolute Eosinophils,108,20 - 500 /uL
+Basophils,01,0-2%
+Absolute Basophils,"2,592",0-100 /uL
+Lymphocytes,08,20-40%
+Absolute Lymphocytes,432,1000 - 3000 /jiL

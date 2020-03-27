@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+<br>
+<br>
+<font face="Avenir">
+<div class="container">
+    <p class="lead"><u>Enter details of the client:</u></p>
+    <form action="/" method="POST">
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" name="first" placeholder="First name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="mobile" placeholder="Mobile Number">
+                </div>
+                <div class="col">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </div>
+            </div>
+        </div>
+    </form>
+    <br>
+</div>
+<hr class="my4">
+{% if exists == 0 %}
+    <div class="container" align="center">
+        <h5><p class="lead">No entry found.</p><a href="{{ url_for('upload_image') }}">Create new entry?</a></h5>
+    </div>
+    <hr class="my4">
+{% elif exists == 1 %}
+    <div class="container">
+        <p class="lead">Entry found!</p>
+        <ul class="list-group">
+            <a href="{{ url_for('upload_image') }}"><li class="list-group-item">Upload new report</li></a>
+            <a href="{{ url_for('view_docs') }}"><li class="list-group-item">View previously uploaded reports</li></a>
+            <a href="{{ url_for('trend_chart') }}"><li class="list-group-item">View trend chart</li></a>
+            <a href="#"><li class="list-group-item">Insurance Coverage</li></a>
+        </ul>
+    </div>
+    <hr class="my4">
+{% endif %}
+
+
+</font>
+
+
+{% endblock %}

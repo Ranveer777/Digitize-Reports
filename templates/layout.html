@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style>
+body {
+  font-family: "roboto", sans-serif;
+}
+h1 {
+  text-align: center;
+}
+.sidebar{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #C1C1C1;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #FFFFFF;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top:0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.openbtn {
+  font-family:roboto;
+  font-size: 18px;
+  cursor: pointer;
+  background-color: #4C4C4C;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #BBBBBB;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 0px;
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+
+<body>
+<div class="container-fluid text-white" style="background-color:#4C4C4C">
+	<p style="font-size:240%"><button class="openbtn" onclick="openNav()"><font face="Avenir">☰ MENU</font></button><img src="static/images/heartbeat1.jpg" alt="LIFE" width="120" height="120"><font face="Avenir">digitize reports</font></p>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="{{ url_for('new_home') }}"><font face="Avenir">Search Client</font></a>
+	<a href="{{ url_for('upload_image') }}"><font face="Avenir">Upload Report</font></a>
+	<a href="{{ url_for('view_docs') }}"><font face="Avenir">Uploaded Reports</font></a>
+	<a href="{{ url_for('trend_chart') }}"><font face="Avenir">Trend Chart</font></a>
+</div>
+<!--font-family:roboto-slim;-->
+<div id="main" class="container-fluid">
+
+    {% block body %}{% endblock %}
+
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+</script>
+</body>
+</html>

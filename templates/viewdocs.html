@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<font face="Avenir">
+<div class="container" align="center">
+    <h3><b>Username</b>: {{ all[0]['_id'].split('_')[0] }}</h3>
+    <hr class="my4">
+</div>
+{% for report in all %}
+    <div class="container" align="center">
+        <b>Date</b>: {{ report['_id'].split('_')[1].split(' ')[0] }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <b>Time</b>: {{ report['_id'].strip(search).split(' ')[1].split('.')[0] }}<br>
+        <b>Laboratory Email</b>: {{ report['Email-id'] }}
+    </div>
+    <br>
+    <div class="table" align="center">
+      <table>
+        <tr>
+            <th><u>Health Parameter</u></th>
+            <th><u>Result</u></th>
+            <th><u>Range</u></th>
+        </tr>
+        {% for key, value in report['Data'].items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ value[0] }}</td>
+            <td>{{ value[1] }}</td>
+        {% endfor %}
+        </tr>
+      </table>
+    </div>
+    <form action="downloaded" method="POST">
+        <div class="container form-group" align="center">
+                <i class="fa fa-download">
+                    <a href="{{ url_for('downloaded') }}" ><input type="submit" name="{{'download_' + report['_id'] }}" class="btn btn-primary" value="Download .csv"></a>
+                </i>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <i class="fa fa-download">
+                    <input type="submit" name="{{'download_' + report['_id'] }}" class="btn btn-primary" value="Download .json">
+                </i>
+        </div>
+    </form>
+    <hr class="my-4">
+    <br>
+{% endfor %}
+</font>
+{% endblock %}
